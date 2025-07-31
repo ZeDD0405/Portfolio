@@ -133,27 +133,43 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+// Experience Card hover logic
 function toggleExperience(element) {
-    const items = document.querySelectorAll('.experience-item');
-    items.forEach(item => {
-      if (item !== element) {
-        item.classList.remove('active');
-      }
-    });
-    element.classList.toggle('active');
-  }
-
-  document.addEventListener('click', function (event) {
-    const isClickInside = event.target.closest('.experience-item');
-    if (!isClickInside) {
-      document.querySelectorAll('.experience-item').forEach(item => item.classList.remove('active'));
+  const items = document.querySelectorAll('.experience-item');
+  items.forEach(item => {
+    if (item !== element) {
+      item.classList.remove('active');
     }
   });
-
- function openPDF(fileName) {
-  window.open('assets/pdfs/' + fileName, '_blank');
+  element.classList.toggle('active');
 }
 
+document.addEventListener('click', function (event) {
+  const isClickInside = event.target.closest('.experience-item');
+  if (!isClickInside) {
+    document.querySelectorAll('.experience-item').forEach(item => item.classList.remove('active'));
+  }
+});
 
+// Education Timeline hover logic (same as experience)
+function toggleEducation(element) {
+  const items = document.querySelectorAll('.education-item');
+  items.forEach(item => {
+    if (item !== element) {
+      item.classList.remove('active');
+    }
+  });
+  element.classList.toggle('active');
+}
 
+document.addEventListener('click', function (event) {
+  const isClickInside = event.target.closest('.education-item');
+  if (!isClickInside) {
+    document.querySelectorAll('.education-item').forEach(item => item.classList.remove('active'));
+  }
+});
 
+// PDF Viewer
+function openPDF(fileName) {
+  window.open('assets/pdfs/' + fileName, '_blank');
+}

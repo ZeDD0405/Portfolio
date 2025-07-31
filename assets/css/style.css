@@ -2183,3 +2183,231 @@ textarea.form-input::-webkit-resizer { display: none; }
 .experience-btn:hover {
   background-color: #0097a7;
 }
+
+
+.skills-section {
+  padding-top: 30px;
+}
+
+.skills-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.skill-card h4 {
+  font-size: 1.2rem;
+  color: #00ffee;
+  margin: 15px 0 10px;
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.skill-card ion-icon {
+  font-size: 2.5rem;
+  color: #00ffee;
+  transition: transform 0.4s ease;
+}
+
+.skill-card:hover ion-icon {
+  transform: rotate(15deg) scale(1.3);
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(130deg, #00ffee, #0051ff, #00ffee);
+  animation: glow-rotate 6s linear infinite;
+  opacity: 0.07;
+  z-index: 0;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.skill-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Animation */
+@keyframes glow-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade + Scale Animation on Scroll (you can add AOS or use this) */
+.animated-card {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animated-card:nth-child(1) { animation-delay: 0.2s; }
+.animated-card:nth-child(2) { animation-delay: 0.4s; }
+.animated-card:nth-child(3) { animation-delay: 0.6s; }
+.animated-card:nth-child(4) { animation-delay: 0.8s; }
+.animated-card:nth-child(5) { animation-delay: 1s; }
+.animated-card:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.skills-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.skill-card {
+  width: 280px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  transform-origin: center center;
+}
+
+.skill-card:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.skills-flex-container:hover .skill-card:not(:hover) {
+  transform: scale(0.85);
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+.skills-list {
+  margin-top: 15px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.skill-card:hover .skills-list {
+  opacity: 1;
+  max-height: 500px;
+}
+
+/* Skill Bars */
+.skill-bar {
+  margin-bottom: 10px;
+}
+
+.skill-bar span {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.bar {
+  background: rgba(255, 255, 255, 0.1);
+  height: 8px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00ffee, #0080ff);
+  border-radius: 4px;
+  animation: growBar 1s ease forwards;
+}
+
+@keyframes growBar {
+  to {
+    width: var(--percent);
+  }
+}
+
+.skill-bar i {
+  margin-right: 8px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+.socials-section {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--light-background);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.socials-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background: var(--background);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+.social-link:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-5px);
+}
+

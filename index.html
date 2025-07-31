@@ -7,23 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vCard - Personal Portfolio</title>
 
-  <!--
-    - favicon
-  -->
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- Devicon CSS for language icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Ionicons (for icons in skill cards) -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 </head>
+
+
 
 <body>
 
@@ -186,17 +198,7 @@
   </ul>
 </nav>
 
-
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about active" data-page="about">
+<article class="about active" data-page="about">
 
   <header>
     <h2 class="h2 article-title">About me</h2>
@@ -264,6 +266,90 @@
   </ol>
 
 </section>
+
+<section class="skills-section">
+  <div class="title-wrapper">
+    <div class="icon-box">
+      <ion-icon name="flash-outline"></ion-icon>
+    </div>
+    <h3 class="h3">My Skills</h3>
+  </div>
+
+  <div class="skills-flex-container">
+
+    <!-- Frontend -->
+    <div class="skill-card" data-skill>
+      <h4>Frontend</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><i class="devicon-react-original colored"></i> React.js</span><div class="bar"><div class="fill" style="--percent: 95%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-nextjs-original"></i> Next.js</span><div class="bar"><div class="fill" style="--percent: 90%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-html5-plain colored"></i> HTML</span><div class="bar"><div class="fill" style="--percent: 95%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-css3-plain colored"></i> CSS</span><div class="bar"><div class="fill" style="--percent: 92%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-tailwindcss-plain colored"></i> TailwindCSS</span><div class="bar"><div class="fill" style="--percent: 90%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-bootstrap-plain colored"></i> Bootstrap</span><div class="bar"><div class="fill" style="--percent: 85%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="skill-card" data-skill>
+      <h4>Backend</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><i class="devicon-nodejs-plain colored"></i> Node.js</span><div class="bar"><div class="fill" style="--percent: 90%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-express-original colored"></i> Express.js</span><div class="bar"><div class="fill" style="--percent: 85%"></div></div></div>
+        <div class="skill-bar"><span><ion-icon name="cloud-outline"></ion-icon> REST APIs</span><div class="bar"><div class="fill" style="--percent: 92%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-card" data-skill>
+      <h4>Databases</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><i class="devicon-mongodb-plain colored"></i> MongoDB</span><div class="bar"><div class="fill" style="--percent: 90%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span><div class="bar"><div class="fill" style="--percent: 80%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-firebase-plain colored"></i> Firebase</span><div class="bar"><div class="fill" style="--percent: 75%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="skill-card" data-skill>
+      <h4>Languages</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><i class="devicon-javascript-plain colored"></i> JavaScript</span><div class="bar"><div class="fill" style="--percent: 95%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-cplusplus-plain colored"></i> C++</span><div class="bar"><div class="fill" style="--percent: 85%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-java-plain colored"></i> Java</span><div class="bar"><div class="fill" style="--percent: 80%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="skill-card" data-skill>
+      <h4>Tools</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><i class="devicon-git-plain colored"></i> Git & GitHub</span><div class="bar"><div class="fill" style="--percent: 95%"></div></div></div>
+        <div class="skill-bar"><span><ion-icon name="paper-plane-outline"></ion-icon> Postman</span><div class="bar"><div class="fill" style="--percent: 85%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-docker-plain colored"></i> Docker</span><div class="bar"><div class="fill" style="--percent: 75%"></div></div></div>
+        <div class="skill-bar"><span><i class="devicon-vscode-plain colored"></i> VS Code</span><div class="bar"><div class="fill" style="--percent: 98%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="skill-card" data-skill>
+      <h4>Concepts</h4>
+      <div class="skills-list">
+        <div class="skill-bar"><span><ion-icon name="repeat-outline"></ion-icon> Agile</span><div class="bar"><div class="fill" style="--percent: 90%"></div></div></div>
+        <div class="skill-bar"><span><ion-icon name="shield-outline"></ion-icon> Web Security</span><div class="bar"><div class="fill" style="--percent: 85%"></div></div></div>
+        <div class="skill-bar"><span><ion-icon name="swap-horizontal-outline"></ion-icon> API Integration</span><div class="bar"><div class="fill" style="--percent: 92%"></div></div></div>
+        <div class="skill-bar"><span><ion-icon name="speedometer-outline"></ion-icon> Optimization</span><div class="bar"><div class="fill" style="--percent: 88%"></div></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
 
 
 
@@ -432,15 +518,6 @@
 
 </article>
 
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
 <article class="experience" data-page="experience">
   <header>
     <h2 class="h2 article-title">Experience</h2>
@@ -456,28 +533,22 @@
 
     <ol class="timeline-list experience-timeline">
 
- 
-
       <!-- Internship 2: Acmegrade Pvt. Ltd (Mood Indigo, IIT Bombay) -->
       <li class="timeline-item experience-item" onclick="toggleExperience(this)">
         <h4 class="h4 timeline-item-title">Web Development Intern – Acmegrade (Mood Indigo, IIT Bombay)</h4>
         <span>9th Jan 2024 – 9th Mar 2024</span>
-
         <div class="timeline-summary">
           Internship in Web Development at Acmegrade under IIT Bombay Mood Indigo.
         </div>
-
         <div class="timeline-details">
           Completed a 2-month internship with Acmegrade. Gained hands-on experience in web technologies and demonstrated strong analytical, presentation, and project skills.
         </div>
-
         <div class="timeline-extra-details">
           <ul>
             <li>• Web development projects with real-world applications</li>
             <li>• Praised for planning, interpersonal, and presentation skills</li>
             <li>• Strong technical and research capabilities</li>
           </ul>
-
           <div class="experience-buttons">
             <button class="experience-btn" onclick="event.stopPropagation(); openPDF('acmegrade_certificate.pdf')">Internship Certificate</button>
             <button class="experience-btn" onclick="event.stopPropagation(); openPDF('acmegrade_lor.pdf')">Letter of Recommendation</button>
@@ -490,22 +561,18 @@
       <li class="timeline-item experience-item" onclick="toggleExperience(this)">
         <h4 class="h4 timeline-item-title">Android Development Intern – Plasmid Innovation Ltd</h4>
         <span>1st Sept 2024 – 1st Nov 2024</span>
-
         <div class="timeline-summary">
           Internship in Android Development at Plasmid Innovation Ltd.
         </div>
-
         <div class="timeline-details">
           Successfully completed a 2-month internship at Plasmid in Android Development. Delivered quality work in industrial projects and received appreciation for sincere and diligent efforts.
         </div>
-
         <div class="timeline-extra-details">
           <ul>
             <li>• Developed Android-based applications</li>
             <li>• Contributed to industrial-grade projects</li>
             <li>• Recognized for performance and commitment</li>
           </ul>
-
           <div class="experience-buttons">
             <button class="experience-btn" onclick="event.stopPropagation(); openPDF('plasmid_certificate.pdf')">Internship Certificate</button>
             <button class="experience-btn" onclick="event.stopPropagation(); openPDF('plasmid_lor.pdf')">Letter of Recommendation</button>
@@ -514,33 +581,42 @@
         </div>
       </li>
 
-           <!-- Internship 3: Tata Power -->
+      <!-- Internship 3: Tata Power -->
       <li class="timeline-item experience-item" onclick="toggleExperience(this)">
         <h4 class="h4 timeline-item-title">Backend Developer Intern – Tata Power (EZ Charge Division)</h4>
         <span>1st June 2025 – 30th July 2025</span>
-
         <div class="timeline-summary">
           On-site internship at Tata Power, contributing to the EZ Charge website backend.
         </div>
-
         <div class="timeline-details">
           Worked as a Backend Developer for Tata Power's EZ Charge platform. Contributed to API integrations and multi-page backend implementations for their official site.
         </div>
-
         <div class="timeline-extra-details">
           <ul>
             <li>• Developed and maintained backend of EZ Charge official website</li>
             <li>• Integrated multiple APIs into production</li>
             <li>• Gained real-world experience working with Tata Power's development team</li>
           </ul>
+        </div>
+      </li>
 
-          <!-- Uncomment below if documents are available later -->
-          <!--
-          <div class="experience-buttons">
-            <button class="experience-btn" onclick="event.stopPropagation(); openPDF('tata_certificate.pdf')">Internship Certificate</button>
-            <button class="experience-btn" onclick="event.stopPropagation(); openPDF('tata_lor.pdf')">Letter of Recommendation</button>
-          </div>
-          -->
+      <!-- Freelance Project: Om Eye Care -->
+      <li class="timeline-item experience-item" onclick="toggleExperience(this)">
+        <h4 class="h4 timeline-item-title">Freelance Web Developer – Om Eye Care</h4>
+        <span>May 2025 – Present</span>
+        <div class="timeline-summary">
+          Building a fully functional e-commerce website for Om Eye Care, a local optical store.
+        </div>
+        <div class="timeline-details">
+          Currently working as a freelance full-stack developer for Om Eye Care, creating a modern and responsive optical e-commerce website that allows admin to manage products, orders, and customer data through a dedicated admin panel.
+        </div>
+        <div class="timeline-extra-details">
+          <ul>
+            <li>• Developing user-friendly front-end with React.js and Tailwind CSS</li>
+            <li>• Implementing backend functionalities using Node.js and Express.js</li>
+            <li>• Creating secure admin panel for order and inventory management</li>
+            <li>• Integrated authentication, image uploads, and dynamic product listings</li>
+          </ul>
         </div>
       </li>
 
@@ -549,21 +625,7 @@
 </article>
 
 
-
-
-
-
-
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
+<article class="portfolio" data-page="portfolio">
 
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
@@ -793,17 +855,9 @@
 
         </section>
 
-      </article>
+</article>
 
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
+<article class="blog" data-page="blog">
 
         <header>
           <h2 class="h2 article-title">Blog</h2>
@@ -985,17 +1039,9 @@
 
         </section>
 
-      </article>
+</article>
 
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
+<article class="contact" data-page="contact">
 
         <header>
           <h2 class="h2 article-title">Contact</h2>
@@ -1032,7 +1078,7 @@
 
         </section>
 
-      </article>
+</article>
 
     </div>
 
