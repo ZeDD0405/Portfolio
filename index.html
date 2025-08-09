@@ -35,19 +35,9 @@
   ></script>
 </head>
 
-
-
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
+<main>
 
 <aside class="sidebar" data-sidebar>
 
@@ -153,24 +143,8 @@
   </div>
 
 </aside>
-
-
-
-
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
 
 <nav class="navbar">
   <ul class="navbar-list">
@@ -188,7 +162,7 @@
     </li>
 
     <li class="navbar-item">
-      <button class="navbar-link" data-nav-link>Blog</button>
+      <button class="navbar-link" data-nav-link>Projects</button>
     </li>
 
     <li class="navbar-item">
@@ -857,189 +831,314 @@
 
 </article>
 
-<article class="blog" data-page="blog">
-
+<article class="projects" data-page="projects">
         <header>
-          <h2 class="h2 article-title">Blog</h2>
+            <h2 class="h2 article-title">Projects</h2>
         </header>
 
-        <section class="blog-posts">
+        <section class="projects-posts">
+            <ul class="projects-posts-list">
 
-          <ul class="blog-posts-list">
+                <li class="project-post-item" data-filter-item data-category="web">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/SIH.mp4" type="video/mp4">
+                                <source src="./assets/videos/SIH.mp4" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-            <li class="blog-post-item">
-              <a href="#">
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">Web Development</p>
+                                <span class="dot"></span>
+                                <time datetime="2024-01-15">Jan 15, 2024</time>
+                            </div>
 
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
+                            <h3 class="h3 project-item-title">E-Commerce Platform</h3>
 
-                <div class="blog-content">
+                            <p class="project-text">
+                                A full-stack e-commerce solution built with React and Node.js featuring secure payments and admin dashboard.
+                            </p>
 
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-                    <span class="dot"></span>
+                <li class="project-post-item" data-filter-item data-category="mobile">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/project-2.mp4" type="video/mp4">
+                                <source src="./assets/videos/project-2.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">Mobile App</p>
+                                <span class="dot"></span>
+                                <time datetime="2023-12-10">Dec 10, 2023</time>
+                            </div>
 
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+                            <h3 class="h3 project-item-title">Task Management App</h3>
 
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
+                            <p class="project-text">
+                                Cross-platform mobile app for team collaboration and task management with real-time synchronization.
+                            </p>
 
-                </div>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-              </a>
-            </li>
+                <li class="project-post-item" data-filter-item data-category="web">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/project-3.mp4" type="video/mp4">
+                                <source src="./assets/videos/project-3.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-            <li class="blog-post-item">
-              <a href="#">
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">Web Development</p>
+                                <span class="dot"></span>
+                                <time datetime="2023-11-20">Nov 20, 2023</time>
+                            </div>
 
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
+                            <h3 class="h3 project-item-title">Data Visualization Dashboard</h3>
 
-                <div class="blog-content">
+                            <p class="project-text">
+                                Interactive dashboard for data analytics with real-time charts and customizable reporting features.
+                            </p>
 
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-                    <span class="dot"></span>
+                <li class="project-post-item" data-filter-item data-category="ai">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/project-4.mp4" type="video/mp4">
+                                <source src="./assets/videos/project-4.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">AI/ML</p>
+                                <span class="dot"></span>
+                                <time datetime="2023-10-05">Oct 05, 2023</time>
+                            </div>
 
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+                            <h3 class="h3 project-item-title">AI Chatbot Assistant</h3>
 
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
+                            <p class="project-text">
+                                Intelligent chatbot with natural language processing capabilities for customer service automation.
+                            </p>
 
-                </div>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-              </a>
-            </li>
+                <li class="project-post-item" data-filter-item data-category="web">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/project-5.mp4" type="video/mp4">
+                                <source src="./assets/videos/project-5.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-            <li class="blog-post-item">
-              <a href="#">
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">Web Development</p>
+                                <span class="dot"></span>
+                                <time datetime="2023-09-12">Sep 12, 2023</time>
+                            </div>
 
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
+                            <h3 class="h3 project-item-title">Social Media Platform</h3>
 
-                <div class="blog-content">
+                            <p class="project-text">
+                                Full-featured social networking platform with real-time messaging and content sharing capabilities.
+                            </p>
 
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-                    <span class="dot"></span>
+                <li class="project-post-item" data-filter-item data-category="mobile">
+                    <a href="#" class="project-link" data-project-item>
+                        <figure class="project-banner-box">
+                            <video 
+                                class="project-video" 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                data-project-video>
+                                <source src="./assets/videos/project-6.mp4" type="video/mp4">
+                                <source src="./assets/videos/project-6.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </figure>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <p class="project-category">Mobile App</p>
+                                <span class="dot"></span>
+                                <time datetime="2023-08-18">Aug 18, 2023</time>
+                            </div>
 
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+                            <h3 class="h3 project-item-title">Fitness Tracking App</h3>
 
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
+                            <p class="project-text">
+                                Comprehensive fitness app with workout tracking, nutrition monitoring, and progress analytics.
+                            </p>
 
-                </div>
+                            <div class="project-tech-stack">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
 
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
+            </ul>
         </section>
 
-</article>
+        <!-- Project Modal -->
+        <div class="modal-container" data-modal-container>
+            <div class="overlay" data-overlay></div>
+            <div class="project-modal">
+                <button class="modal-close-btn" data-modal-close-btn>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                
+                <div class="modal-content">
+                    <div class="modal-video-container">
+                        <video class="modal-video" controls data-modal-video>
+                            <source src="" type="video/mp4">
+                            <source src="" type="video/webm">
+                        </video>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h3 class="modal-title" data-modal-title></h3>
+                        <p class="modal-category" data-modal-category></p>
+                        <p class="modal-description" data-modal-text></p>
+                        <div class="modal-tech-stack" data-modal-tech></div>
+                        <div class="modal-actions">
+                            <a href="#" class="btn-primary" data-modal-demo>Live Demo</a>
+                            <a href="#" class="btn-secondary" data-modal-code>View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
 
 <article class="contact" data-page="contact">
 
@@ -1082,25 +1181,11 @@
 
     </div>
 
-  </main>
+</main>
 
-
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./assets/js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
