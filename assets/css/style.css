@@ -2443,8 +2443,26 @@ textarea.form-input::-webkit-resizer { display: none; }
               -6px -6px 12px rgba(255, 255, 255, 0.02);
   cursor: pointer;
   position: relative;
-  transform: translateY(0);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideFadeIn 0.6s forwards;
+}
+
+/* Stagger effect for multiple cards */
+.project-post-item:nth-child(1) { animation-delay: 0.1s; }
+.project-post-item:nth-child(2) { animation-delay: 0.2s; }
+.project-post-item:nth-child(3) { animation-delay: 0.3s; }
+.project-post-item:nth-child(4) { animation-delay: 0.4s; }
+.project-post-item:nth-child(5) { animation-delay: 0.5s; }
+.project-post-item:nth-child(6) { animation-delay: 0.6s; }
+.project-post-item:nth-child(7) { animation-delay: 0.7s; }
+.project-post-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-post-item::after {
@@ -2626,3 +2644,73 @@ textarea.form-input::-webkit-resizer { display: none; }
   margin-left: 0;
 }
 
+/* ====== Project Filter Section - Dark Theme ====== */
+.project-filter {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ccc;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.6s forwards;
+}
+
+.project-filter label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+/* Dropdown container */
+.project-filter select {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  font-size: 0.95rem;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Hover effect */
+.project-filter select:hover {
+  border-color: #ffcc33;
+  box-shadow: 0 4px 12px rgba(255, 204, 51, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Focus effect */
+.project-filter select:focus {
+  border-color: #ffcc33;
+  box-shadow: 0 4px 16px rgba(255, 204, 51, 0.5);
+  background-color: #2a2a2a;
+  transform: scale(1.02);
+}
+
+/* Slide fade-in animation */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

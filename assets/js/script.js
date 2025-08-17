@@ -204,3 +204,18 @@ projectCards.forEach(card => {
     card.style.setProperty("--mouse-y", `${y}px`);
   });
 });
+
+/* ========= Project Dropdown Filter (College / Hackathon / Learning / Freelancing) ========= */
+const projectFilterDropdown = document.getElementById("projectCategory");
+if (projectFilterDropdown) {
+  projectFilterDropdown.addEventListener("change", () => {
+    const selected = projectFilterDropdown.value;
+    projectCards.forEach(card => {
+      if (selected === "all" || card.dataset.category === selected) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+}
