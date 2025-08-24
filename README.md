@@ -3,7 +3,7 @@
 Welcome to the source code of my **personal portfolio website**!  
 This portfolio showcases my work, skills, and projects as a **Full Stack Developer | AI/ML Engineer**.
 
-🚀 Check out the live portfolio here: [Your Portfolio Link]([https://your-portfolio-link.com]([https://sagarrr-portfolio.netlify.app/](https://sagarrrrr.netlify.app/)))
+🚀 Check out the live portfolio here: https://sagarrrrr.netlify.app/
 
 ---
 
