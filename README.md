@@ -1,44 +1,51 @@
-# vCard - Personal portfolio
+# 🌐 My Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+Welcome to the source code of my **personal portfolio website**!  
+This portfolio showcases my work, skills, and projects as a **Full Stack Developer | AI/ML Engineer**.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+🚀 Check out the live portfolio here: [Your Portfolio Link]([https://your-portfolio-link.com](https://sagarrr-portfolio.netlify.app/))
 
-## Demo
+---
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+## 📂 Sections in Portfolio
 
-## Prerequisites
+- **About** – Who I am, my journey & skills  
+- **Experience** – Work experience and internships  
+- **Co-curricular Activities** – Certifications, competitions, workshops  
+- **Projects** – Highlighted projects with links  
+- **Contact** – Easy way to connect with me  
 
-Before you begin, ensure you have met the following requirements:
+---
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+## 🔥 Features
 
-## Installing vCard
+- Responsive design (mobile-friendly 📱)  
+- Smooth animations and transitions ✨  
+- Interactive project showcase  
+- Integrated contact form (with email/DB)  
 
-To install **vCard**, follow these steps:
+---
 
-Linux and macOS:
+## 📸 Screenshots
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/5109f9de-cfc6-408d-8937-9f1a903223e3" />
+
+
+---
+
+## ⚡ Getting Started (for developers)
+
+If you want to run this portfolio locally:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+# Clone this repository
+git clone https://github.com/ZeDD0405/Portfolio.git
 
-Windows:
+# Navigate into the project folder
+cd Portfolio
 
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+# Install dependencies (if using npm/yarn)
+npm install
 
-## Contact
-
-If you want to contact me you can reach me at [Twitter](https://www.x.com/codewithsadee_).
-
-## License
-
-MIT
+# Start development server
+npm start
