@@ -909,16 +909,22 @@ Key Highlights:
   </section>
 </article>
 
-<!-- ================= PROJECT MODAL ================= -->
+<!-- Project Modal -->
 <div class="project-modal-container" id="projectModal">
   <div class="project-modal">
     <button class="modal-close-btn" id="closeProjectModal">✖</button>
-    <h2 id="modalProjectTitle"></h2>
-    <p id="modalProjectDescription"></p>
-    <video id="modalProjectVideo" width="100%" controls>
-      <source src="" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="modal-content-wrapper">
+      <div class="modal-video-box">
+        <video id="modalProjectVideo" width="100%" controls>
+          <source src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="modal-description-box">
+        <h2 id="modalProjectTitle"></h2>
+        <p id="modalProjectDescription"></p>
+      </div>
+    </div>
   </div>
   <div class="overlay" id="projectOverlay"></div>
 </div>
