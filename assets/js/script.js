@@ -97,6 +97,24 @@ formInputs.forEach(input => {
   });
 });
 
+// ===== Submit form via mailto =====
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fullname = form.querySelector('input[name="fullname"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    const mailtoLink = `mailto:sagarkallimani0405@gmail.com?subject=Message from ${encodeURIComponent(fullname)}&body=${encodeURIComponent("Name: " + fullname + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+
+    window.location.href = mailtoLink;
+
+    form.reset();
+    formBtn.setAttribute("disabled", "");
+  });
+}
+
 /* ========= Page Navigation ========= */
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
