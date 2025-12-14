@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sagar Kallimani – AI & Full Stack Architect</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+/* =======================
+    DESIGN TOKENS: MODERN ARCHITECT (PERMANENT DARK MODE)
+    ======================= */
+:root {
+    /* PERMANENT DARK MODE COLORS */
+    --color-bg-light: #000000; /* True Black for Deep Contrast */
+    --color-bg-dark: #f0f0f0; /* Light alternative for contrast elements */
+    
+    /* Text Colors */
+    --color-text-main: #e0e0e0; /* Main Light Text */
+    --color-text-dark: #1f1f1f; /* Dark Text on Light Sections */
+    --color-text-sub: #b0b0b0; /* Subdued Gray */
+
+    /* Card Colors */
+    --color-card-bg-light: #1f1f1f; /* Darker cards on black background */
+    --color-card-bg-dark: #f0f0f0; 
+
+    /* Neon Accent Colors */
+    --color-primary-accent: #00ffff; /* NEON CYAN/BLUE for high contrast tech look */
+    --color-secondary-accent: #00ff73; /* NEON GREEN secondary */
+    
+    --spacing-section: 120px; 
+    --spacing-padding: 30px;
+    --transition-base: 0.3s ease-out;
+    --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.7); /* Strong shadows */
+
+    /* Navbar Specific */
+    --navbar-bg-light: rgba(0, 0, 0, 0.95); /* Black Navbar */
+    
+    /* Gradient for Image Border */
+    --gradient-border: linear-gradient(45deg, var(--color-primary-accent), var(--color-secondary-accent));
+}
+
+/* =======================
+  NEW IMPRESSIVE ANIMATION: SUBTLE ENERGY GRID
+  ======================= */
+
+/* Keyframe 1: Subtle Noise/Grid Shift */
+@keyframes noise-shift {
+    0% { background-position: 0 0; }
+    100% { background-position: -500px -500px; }
+}
+
+/* Keyframe 2: Central Pulse/Glow */
+@keyframes pulse-glow {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.25; }
+    100% { opacity: 0.1; }
+}
+
+/* Layer 1: The Dark, Repeating Grid Pattern (::before) */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: 0; /* Background layer */
+    pointer-events: none;
+    
+    /* Create a repeating subtle grid pattern */
+    background-image: 
+        repeating-linear-gradient(0deg, var(--color-text-main) 0, var(--color-text-main) 1px, transparent 1px, transparent 100px),
+        repeating-linear-gradient(90deg, var(--color-text-main) 0, var(--color-text-main) 1px, transparent 1px, transparent 100px);
+    background-size: 500px 500px; /* Large pattern size */
+    opacity: 0.03; /* Extremely subtle */
+    
+    /* Slowly pan the grid for movement */
+    animation: noise-shift 120s linear infinite; 
+}
+
+/* Layer 2: Central Pulsating Glow (::after) */
+.section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%; 
+    height: 80%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1; /* Above the grid, below the content */
+    pointer-events: none;
+    
+    /* Soft radial glow using primary accent color */
+    background: radial-gradient(
+        circle at center, 
+        var(--color-primary-accent) 0%, 
+        transparent 70%
+    );
+    
+    filter: blur(80px); /* Massive blur for soft glow */
+    opacity: 0.15; /* Subtler than the glow keyframe */
+    animation: pulse-glow 15s ease-in-out infinite alternate;
+}
+
+/* Ensure content is above the pseudo-element background */
+.section * {
+    position: relative;
+    z-index: 3; 
+}
+
+/* Apply permanent background color to all sections */
+.section { 
+    padding: var(--spacing-section) 0; 
+    position: relative; 
+    overflow: hidden; 
+    background-color: var(--color-bg-light); 
+}
+
+/* =======================
+    GLOBAL BASE & TYPOGRAPHY
+    ======================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+a { text-decoration: none; color: var(--color-primary-accent); transition: color var(--transition-base); }
+a:hover { color: var(--color-secondary-accent); }
+.wrap { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+
+h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: var(--color-primary-accent); }
+h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 50px; } 
+h2 span { color: var(--color-primary-accent); }
+h3 { font-size: 1.35rem; font-weight: 600; color: inherit; }
+p { margin-bottom: 1.25rem; }
+
+/* =======================
+    LANDING ANIMATIONS & HERO FIX
+    ======================= */
+
+/* Staggered Fade-In */
+.hero-left > *:not(h1) { 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+}
+.hero-left .hero-subtitle { animation-delay: 0.1s; }
+.hero-left p { animation-delay: 0.5s; } 
+.hero-left .hero-buttons { animation-delay: 0.7s; } 
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typewriter Fix */
+.hero-left h1 {
+    opacity: 0; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    animation: 
+        typewriter 2.0s steps(30, end) 0.3s forwards, 
+        cursor 0.75s step-end infinite 0.3s; 
+    display: block; 
+    border-right: 3px solid var(--color-primary-accent); 
+}
+@keyframes typewriter {
+    0% { width: 0; opacity: 1; } 
+    100% { width: 100%; opacity: 1; }
+}
+@keyframes cursor {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-primary-accent); }
+}
+
+/* Image Fade In */
+.hero-image-container {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 1s ease-out 1.2s forwards; 
+    margin-top: 40px; 
+}
+@keyframes fadeInScale {
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* =======================
+    HERO IMAGE REDESIGN 
+    ======================= */
+.hero { 
+    min-height: 80vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px; 
+}
+
+.hero-left { max-width: 800px; width: 100%; }
+
+.hero-image-container {
+    width: 300px; 
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--gradient-border); 
+    padding: 5px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img {
+    display: block; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%; 
+    box-shadow: none; 
+}
+
+.profile-meta {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--color-text-sub);
+}
+
+
+/* =======================
+    ALTERNATION LOGIC (Fixed B&W based on fixed theme)
+    ======================= */
+
+.section-dark-alt {
+    /* These sections are now the light color set on the dark background */
+    background-color: var(--color-bg-dark); 
+    color: var(--color-text-dark); 
+}
+.section-dark-alt h2, 
+.section-dark-alt h3 { color: var(--color-text-dark); }
+.section-dark-alt p { color: var(--color-text-dark); opacity: 0.9; }
+.section-dark-alt .timeline-entry .year-range { color: var(--color-text-dark); }
+
+/* Card colors for light sections */
+.section-dark-alt .card-base {
+    background: var(--color-card-bg-dark); /* Light card on light section */
+    color: var(--color-text-dark);
+    border-left: 4px solid var(--color-primary-accent); /* Keep accent color */
+}
+.section-dark-alt .job-role,
+.section-dark-alt .job-entry ul li,
+.section-dark-alt .skill-category li strong {
+    color: var(--color-text-dark);
+}
+.section-dark-alt .project-card .project-details h3,
+.section-dark-alt .project-card .project-details p,
+.section-dark-alt .project-card .project-details li {
+    color: var(--color-text-dark); 
+}
+/* Co-Curricular List in Light Section */
+.section-dark-alt .cocurricular-list li {
+    color: var(--color-text-dark);
+}
+
+
+
+.section:not(.section-dark-alt) {
+    /* These sections are now the black color set */
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+}
+/* Ensure dark section text color is main text color */
+.section:not(.section-dark-alt) h3,
+.section:not(.section-dark-alt) p,
+.section:not(.section-dark-alt) ul li {
+    color: var(--color-text-main);
+}
+.section:not(.section-dark-alt) h2 span {
+     color: var(--color-primary-accent);
+}
+/* Card colors for dark sections */
+.section:not(.section-dark-alt) .card-base {
+    background: var(--color-card-bg-light); /* Dark card on dark section */
+    color: var(--color-text-main);
+}
+/* Co-Curricular List in Dark Section */
+.section:not(.section-dark-alt) .cocurricular-list li {
+    color: var(--color-text-main);
+}
+
+
+/* =======================
+    CARD BASE STYLES 
+    ======================= */
+
+.card-base {
+    padding: var(--spacing-padding);
+    border-radius: 8px;
+    box-shadow: var(--shadow-base);
+    transition: all var(--transition-base);
+    
+    border-left: 4px solid var(--color-primary-accent);
+    border-top: none; 
+    border-right: none;
+    border-bottom: none;
+    /* Default is dark card for dark section */
+    background: var(--color-card-bg-light); 
+    color: var(--color-text-main);
+}
+.card-base:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =======================
+    NAVBAR STYLES
+    ======================= */
+
+.header {
+    background: var(--navbar-bg-light); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    position: sticky; top: 0; z-index: 100;
+    padding: 15px 0; 
+}
+.header .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { color: var(--color-text-main); font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+.logo span { color: var(--color-primary-accent); }
+.nav-links { margin: 0 20px; display: flex; gap: 25px; }
+.nav-links a {
+    color: var(--color-text-main); font-weight: 500; position: relative; padding: 5px 0; 
+    transition: color var(--transition-base); opacity: 0.85;
+}
+.nav-links a:hover { color: var(--color-primary-accent); opacity: 1; }
+.nav-links a.active { color: var(--color-primary-accent); font-weight: 600; opacity: 1; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 3px;
+    background: var(--color-primary-accent); border-radius: 2px;
+}
+
+
+/* =======================
+    BUTTON HOVER EFFECTS
+    ======================= */
+.btn-primary, .btn-secondary, .btn-repo { 
+    padding: 12px 25px; border-radius: 6px; font-weight: 600; font-size: 1.0rem; 
+    margin-right: 15px; transition: all var(--transition-base); display: inline-block; 
+}
+
+/* Primary Button Hover */
+.btn-primary { background: var(--color-primary-accent); color: var(--color-bg-light); border: 2px solid var(--color-primary-accent); }
+.btn-primary:hover {
+    background: transparent; 
+    color: var(--color-primary-accent);
+    transform: scale(1.02); 
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4); 
+}
+
+/* Secondary Button Hover (Inverse color change) */
+.btn-secondary { background: transparent; color: var(--color-text-main); border: 2px solid var(--color-text-sub); }
+.btn-secondary:hover {
+    background: var(--color-text-sub);
+    color: var(--color-text-dark); 
+    border-color: var(--color-text-sub);
+    transform: scale(1.02); 
+}
+
+/* New Repo Button Style (Using secondary accent color) */
+.btn-repo {
+    background: var(--color-secondary-accent);
+    color: #121212; 
+    border: 2px solid var(--color-secondary-accent);
+    margin-top: 15px; 
+    font-size: 0.95rem; 
+    text-align: center; 
+    display: block; 
+}
+.btn-repo:hover {
+    background: transparent;
+    border-color: var(--color-secondary-accent);
+    color: var(--color-secondary-accent);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 255, 115, 0.4);
+}
+
+/* ACHIEVEMENT BUTTON (Specific styling for the jump link) */
+.btn-project-jump {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 25px;
+    display: inline-block;
+    background: transparent;
+    color: var(--color-secondary-accent);
+    border: 2px solid var(--color-secondary-accent);
+    transition: all var(--transition-base);
+}
+.btn-project-jump:hover {
+    background: var(--color-secondary-accent);
+    color: var(--color-bg-light);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 255, 115, 0.4);
+}
+
+
+/* =======================
+    ABOUT ME REDESIGN 
+    ======================= */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 50px;
+    align-items: start;
+}
+
+.about-text {
+    max-width: 100%; 
+    font-size: 1.05rem; 
+    line-height: 1.7;
+    color: var(--color-text-dark);
+}
+
+/* --- EDUCATION TIMELINE CHART STYLES --- */
+.education-timeline {
+    position: relative;
+    padding: 10px 0;
+    color: var(--color-text-dark); 
+}
+.education-timeline h4 {
+    color: var(--color-secondary-accent);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    top: 50px; 
+    bottom: 0;
+    left: 10px;
+    width: 2px;
+    background-color: var(--color-secondary-accent);
+    opacity: 0.3;
+}
+.timeline-entry {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-secondary-accent);
+    border: 3px solid var(--color-bg-dark); 
+    z-index: 4; 
+}
+.timeline-entry h5 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--color-text-dark);
+}
+.timeline-entry p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: var(--color-text-dark);
+    opacity: 0.8;
+}
+.timeline-entry .year-range {
+    display: block; 
+    font-weight: 600;
+    color: var(--color-text-dark);
+    opacity: 1;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+
+/* =======================
+    ACHIEVEMENT SECTION STYLES
+    ======================= */
+
+.achievement-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 40px;
+    align-items: start;
+}
+
+/* --- Carousel Specific Styles --- */
+.carousel-container {
+    /* FIX: Removed all borders/shadows/background to make it a clean image box */
+    padding: 0; /* No padding */
+    background: none; /* No background/gradient */
+    border-radius: 8px;
+    box-shadow: none; /* No shadow */
+    position: relative;
+    overflow: hidden; 
+    max-height: 480px; /* Adjusted height */
+    display: flex; 
+    flex-direction: column; 
+}
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; 
+    flex: 1; 
+}
+.carousel-slide {
+    flex: 0 0 100%; 
+    width: 100%;
+    height: 100%;
+    max-height: 440px; 
+}
+.achievement-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover; 
+    opacity: 1; /* Ensure full opacity for the image itself */
+}
+/* Navigation Dots */
+.carousel-dots {
+    text-align: center;
+    padding: 10px 0 0 0;
+    margin-top: 15px; 
+    position: relative; 
+    z-index: 5;
+}
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: var(--color-text-sub);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.dot.active {
+    background-color: var(--color-primary-accent);
+}
+/* --- End Carousel Specific Styles --- */
+
+
+.achievement-details h3 {
+    color: var(--color-primary-accent);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+.achievement-details strong {
+    color: var(--color-secondary-accent);
+    font-weight: 700;
+}
+.achievement-details ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+.achievement-details li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 1rem;
+}
+.achievement-details li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary-accent);
+    font-weight: 700;
+}
+
+
+/* =======================
+    EXPERIENCE SECTION (CERTIFICATE MODAL) 
+    ======================= */
+
+.job-entry {
+    position: relative; 
+    overflow: hidden; 
+}
+
+.certificate-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6); 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.job-entry:hover .certificate-overlay {
+    opacity: 1;
+}
+
+.certificate-overlay span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    user-select: none;
+}
+.certificate-overlay span:hover {
+    background: white;
+    color: var(--color-text-main);
+}
+
+/* =======================
+    MODAL STYLES
+    ======================= */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    background: var(--color-card-bg-dark); 
+    border-radius: 8px;
+    padding: 20px;
+}
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* =======================
+    REMAINING SECTION STYLES 
+    ======================= */
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.skill-category h3 { color: var(--color-primary-accent); font-size: 1.4rem; margin-bottom: 15px; border-bottom: none; padding-bottom: 0; }
+.skill-category ul { list-style: none; padding: 0; }
+.skill-category li { color: var(--color-text-sub); font-weight: 400; line-height: 1.4; margin-bottom: 5px; }
+
+.skill-category li strong { 
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+/* --- PROJECT GRID MODIFICATION (Single Column) --- */
+.project-grid { 
+    display: flex;
+    flex-direction: column; 
+    gap: 40px; 
+}
+
+/* --- Project Card Inner Layout (Details + Video) --- */
+.project-card {
+    display: flex;
+    flex-direction: row; 
+    gap: 30px; 
+}
+.project-details {
+    flex: 1; 
+    display: flex; 
+    flex-direction: column;
+}
+.project-details ul { padding-left: 20px; margin-top: 5px;}
+.project-details li { margin-bottom: 5px; font-size: 0.95rem; }
+
+.project-video {
+    flex: 1.5; 
+    min-width: 280px; 
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific styling for HTML5 video element */
+.video-player {
+    width: 100%;
+    height: auto;
+    max-height: 450px; 
+    background: #000; 
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    object-fit: cover; 
+    margin-bottom: 10px; 
+}
+/* --- End Project Card Inner Layout --- */
+
+
+.project-card .tech-tag { 
+    background: var(--color-primary-accent); 
+    color: #121212; 
+    font-size: 0.8rem; 
+    padding: 4px 10px; 
+    border-radius: 4px; 
+    margin-right: 8px; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+    display: inline-block; 
+}
+.experience-list { display: flex; flex-direction: column; gap: 20px; }
+.job-role { font-weight: 600; margin-bottom: 10px; color: var(--color-text-main); }
+.job-header { display: flex; justify-content: space-between; align-items: baseline; }
+.job-duration { font-size: 0.9rem; color: var(--color-text-sub); }
+.job-entry ul { margin-top: 10px; padding-left: 20px; list-style: disc; }
+.job-entry li { margin-bottom: 5px; font-size: 0.95rem; color: var(--color-text-main); }
+
+/* --- Co-Curricular List Styling --- */
+.cocurricular-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+.cocurricular-list li {
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-secondary-accent);
+    /* Inherit background/text from section's normal card style */
+    background: var(--color-card-bg-light); 
+    color: var(--color-text-main);
+    box-shadow: var(--shadow-base);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+/* Apply inverse coloring for the light section (where cocurricular is) */
+.section-dark-alt .cocurricular-list li {
+    background: var(--color-card-bg-dark); 
+    color: var(--color-text-dark);
+}
+/* --- End Co-Curricular List Styling --- */
+
+.footer { padding: 30px 0; text-align: center; font-size: 0.9rem; color: var(--color-text-sub); background: var(--color-card-bg-light); box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03); }
+.fade-in-section { opacity: 0; transform: translateY(20px); visibility: hidden; transition: opacity 0.8s ease-out, transform 0.8s ease-out, visibility 0.8s ease-out; will-change: opacity, transform; }
+.fade-in-section.is-visible { opacity: 1; transform: translateY(0); visibility: visible; }
+
+/* =======================
+    MEDIA QUERIES (RESPONSIVENESS FIX)
+    ======================= */
+@media (max-width: 992px) { 
+    /* Hero section changes */
+    .hero { 
+        padding-top: 50px; 
+        text-align: center; 
+    } 
+    h1 { font-size: 3rem; } 
+    .nav-links { display: none; }
+    .about-content { grid-template-columns: 1fr; gap: 30px; }
+    
+    /* Achievement card stacks vertically */
+    .achievement-content { grid-template-columns: 1fr; gap: 30px; }
+    
+    /* Project card stacks vertically */
+    .project-card {
+        flex-direction: column; 
+    }
+    .project-details {
+        flex: auto; 
+    }
+    .project-video {
+        min-width: 100%; 
+        max-width: 100%;
+        margin-top: 15px; 
+    }
+    
+    /* Adjust image size for smaller screens */
+    .hero-image-container {
+        width: 250px; 
+        height: 250px;
+    }
+
+    /* Co-curricular list stacks vertically on small screens */
+    .cocurricular-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Co-Curricular Activities Section (#cocurricular) --- */
+
+/* Ensures the list takes up space and uses a grid for better structure on larger screens */
+.cocurricular-list {
+    list-style: none; /* Removes default bullet points */
+    padding: 0;
+    margin: 30px 0;
+    
+    /* Responsive Grid for items */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Space between the grid items */
+}
+
+/* Styling for each individual activity list item (The Card) */
+.cocurricular-list li {
+    /* Use a slightly lighter background than the main page for depth */
+    background: #252525; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Subtle accent border (Dark Teal/Cyan - common dark theme accent) */
+    border-left: 4px solid var(--color-primary-accent, #00BFFF); 
+}
+
+.cocurricular-list li:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Styling for the main activity title/role */
+.cocurricular-list strong {
+    font-size: 1.15rem;
+    /* Use the same subtle accent color as the border */
+    color: var(--color-primary-accent, #00BFFF); 
+    display: block; 
+    margin-bottom: 5px;
+}
+
+/* Ensure the main descriptive text is legible */
+.cocurricular-list li p {
+    color: #aaaaaa !important; /* Lighter gray for subtext */
+}
+
+/* Styling for the skills section */
+.cocurricular-list li div {
+    margin-top: 15px;
+    padding-top: 10px;
+    /* Clean, faint separator line */
+    border-top: 1px solid #444444; 
+}
+
+/* Styling for the tech/skill tags */
+.tech-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 5px 5px 5px 0;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem !important; 
+    white-space: nowrap;
+    
+    /* Using neutral colors that look good in dark mode tags */
+    background: #444444 !important; /* Darker gray background for the tag */
+    color: #ffffff !important; /* White text for contrast */
+}
+</style>
+</head>
+<body class="dark-mode"> 
+  <header class="header">
+    <div class="wrap">
+        <div class="logo"><span>Sagar</span>Kallimani</div>
+        
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#achievement">Achievement</a>
+            <a href="#skills">Tech Stack</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#cocurricular">Co-Curricular</a> 
+            <a href="#contact">Contact</a>
+        </nav>
+        
+        <div style="display: flex; align-items: center; flex-shrink: 0;">
+            <a 
+                class="btn-primary" 
+                href="assets/Sagar_Kallimani_CV.pdf" 
+                download="Sagar_Kallimani_CV.pdf"
+            >
+                Download CV
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="section hero" id="hero">
+      <div class="hero-left">
+        <p class="hero-subtitle">SCALABLE AI & FULL-STACK DEVELOPMENT</p>
+        <h1>AI/ML & MERN Stack <span>Developer</span></h1>
+        <p>
+            I architect and deploy robust 🤖 AI/ML solutions using scalable data pipelines (Kafka, FastAPI) and construct high-performance, full-stack web applications (Next.js, Node.js). Recognized for delivering end-to-end, high-impact systems.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#projects">View Work</a>
+          <a class="btn-secondary" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      
+      <aside class="hero-image-container">
+        <img class="profile-img" src="assets/me.jpg" loading="lazy" alt="Sagar Kallimani Profile Picture"/>
+      </aside>
+      <p class="profile-meta">Sagar Kallimani | FCRIT Vashi</p>
+    </section>
+  </div>
+
+    <section class="section fade-in-section section-dark-alt" id="about">
+        <div class="wrap">
+            <h2>01. About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        As a final-year Computer Engineering student, my passion lies at the intersection of 🛠️ scalable software development and 🧠 intelligent systems. I approach development from an architectural perspective, ensuring that applications are not just functional, but efficient, maintainable, and ready for high-traffic demands.
+                    </p>
+                    <p>
+                        My work is highlighted by the 🥇 HACKIITK Hackathon victory for my real-time 🚨 AI Anomaly Detector. This project exemplifies my expertise in taking a concept from data ingestion (Kafka) through model serving (FastAPI) to the user interface (Next.js), delivering complete, production-ready solutions.
+                    </p>
+                    <p>
+                        I believe in lifelong learning and thrive on tackling complex problems, transforming challenging requirements into elegant, high-performance code.
+                    </p>
+                </div>
+                
+                <div class="education-timeline">
+                    <h4>EDUCATIONAL JOURNEY 🎓</h4>
+                    
+                    <div class="timeline-entry">
+                        <h5>BE, Computer Engineering</h5>
+                        <p>Fr. Conceicao Rodrigues Institute of Technology - Vashi</p>
+                        <span class="year-range">2022 - 2026</span>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <h5>11th & 12th Grade (Science)</h5>
+                        <p>Ryan International School, Sanpada</p>
+                        <span class="year-range">2020 - 2022</span>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <h5>1st to 10th Grade</h5>
+                        <p>Mahatma International School - Panvel</p>
+                        <span class="year-range">2010 - 2020</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+    
+    <section class="section fade-in-section" id="achievement">
+        <div class="wrap">
+            <h2>02. Flagship <span>Achievement</span></h2>
+            <div class="achievement-content">
+                
+                <div class="carousel-container">
+                    <div class="carousel-slides" id="achievement-carousel-slides">
+                        <div class="carousel-slide">
+                            <img class="achievement-image" src="assets/1.jpeg" loading="lazy" alt="Achievement Photo 1"/>
+                        </div>
+                        <div class="carousel-slide">
+                            <img class="achievement-image" src="assets/2.jpeg" loading="lazy" alt="Achievement Photo 2"/>
+                        </div>
+                        <div class="carousel-slide">
+                            <img class="achievement-image" src="assets/3.jpeg" loading="lazy" alt="Achievement Photo 3"/>
+                        </div>
+                        <div class="carousel-slide">
+                            <img class="achievement-image" src="assets/4.jpeg" loading="lazy" alt="Achievement Photo 4"/>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-dots" id="achievement-carousel-dots">
+                        </div>
+                    </div>
+                
+                <div class="achievement-details">
+                    <h3>🥇 Winners: Hack IITK Cybersecurity Challenge 2025</h3>
+                    <p>
+                        Emerged as champions, competing against 7000+ global participants in 4 intense rounds, culminating in the finale at   IIT Kanpur  . This project demonstrates end-to-end expertise in AI security, scalable data engineering, and full-stack development.
+                    </p>
+                    <p>
+                          Project: 🛡️ AI-Driven Insider Activity Detection System.
+                    </p>
+                    <h4>Key Technical Highlights:</h4>
+                    <ul>
+                        <li>  AI Pipeline: Deployed   XGBoost (for speed) and   Autoencoders (for deep anomaly detection) on 13GB+ of engineered network data.</li>
+                        <li>  Real-Time Data Streaming: Utilized   Scapy for live packet sniffing, streaming data through   Apache Kafka for high-throughput analysis.</li>
+                        <li>  Full-Stack Dashboard: Built a dynamic   Next.js dashboard with   FastAPI backend for real-time threat alerts, incident timelines, and direct analyst task assignment.</li>
+                        <li>  Scalability & Performance: Tackled massive feature engineering challenges using   Dask + T4 GPU processing power.</li>
+                    </ul>
+                    <a class="btn-project-jump" href="#project-insider-threat-id">View Project Details</a>
+                    <p style="font-size: 0.9rem; margin-top: 20px;">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in-section section-dark-alt" id="skills">
+      <div class="wrap">
+        <h2>03. Core <span>Tech Stack</span></h2>
+        <div class="skills-grid">
+            
+            <div class="skill-category card-base">
+                <h3>DATA & AI ENGINEERING</h3>
+                <ul>
+                    <li>🧠 ML Models: XGBoost, Autoencoders, CNNs</li>
+                    <li>⚙️ Data Pipelines: Kafka, RabbitMQ, ETL</li>
+                    <li>🏗️ Frameworks: FastAPI, Flask, Pandas, NumPy</li>
+                    <li>🗄️ Databases: PostgreSQL, MongoDB, Redis</li>
+                </ul>
+            </div>
+
+            <div class="skill-category card-base">
+                <h3>FRONTEND & UI/UX</h3>
+                <ul>
+                    <li>⚛️ Frameworks: React, Next.js, Redux</li>
+                    <li>✍️ Languages: JavaScript (ES6+), TypeScript</li>
+                    <li>🎨 Styling: Tailwind CSS, Styled Components, SASS</li>
+                    <li>📱 Other: Responsive Design, UI Testing</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category card-base">
+                <h3>BACKEND & DEVOPS</h3>
+                <ul>
+                    <li>🐍 Languages: Node.js, Python, Kotlin (Android)</li>
+                    <li>🛠️ Tools: Docker, Kubernetes (Basics), Git/GitHub</li>
+                    <li>☁️ Cloud: AWS (EC2, S3, Lambda)</li>
+                    <li>🌐 APIs: REST, GraphQL (Basic knowledge)</li>
+                </ul>
+            </div>
+            
+        </div>
+      </div>
+    </section>
+
+<section class="section fade-in-section" id="experience">
+  <div class="wrap">
+    <h2>04. Work <span>Experience</span></h2>
+    <div class="experience-list">
+
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>WIZZER</h3>
+          <span class="job-duration">OCT '25 – PRESENT</span>
+        </div>
+        <div class="job-role">FRONT-END INTERN (Offline, Paid, ₹25,000/month) | Fintech Trading Platform</div>
+        <ul>
+          <li>Developed and maintained features for the official Fintech trading website, ensuring high performance and security.</li>
+          <li>Worked closely with the design and backend teams in an offline setting to deliver seamless user experiences.</li>
+          <li>Gained hands-on experience in a professional environment while receiving a stipend of ₹25,000 per month.</li>
+        </ul>
+        <div class="certificate-overlay"
+             data-certificate-src="assets/wizzer.jpg">
+          <span>Show Certificate</span>
+        </div>
+      </div>
+
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>FREELANCE: OM EYE CARE</h3>
+          <span class="job-duration">MAR '25 – JUN '25</span>
+        </div>
+        <div class="job-role">FULL-STACK DEVELOPER | E-commerce Platform</div>
+        <ul>
+          <li>Architected and deployed a complete e-commerce solution using the MERN Stack.</li>
+          <li>Implemented a robust Admin Dashboard for product, order, and user management.</li>
+          <li>Delivered a fully functional and scalable platform ready for production use.</li>
+        </ul>
+        <div class="certificate-overlay"
+             data-certificate-src="assets/.jpg">
+          <span>Show Certificate</span>
+        </div>
+      </div>
+
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>TATA POWER</h3>
+          <span class="job-duration">JUN '25 – AUG '25</span>
+        </div>
+        <div class="job-role">FULL STACK INTERN | EV Charging Portal</div>
+        <ul>
+          <li>Optimized critical React components, achieving a 25% speed increase.</li>
+          <li>Developed Express.js APIs for secure payment processing.</li>
+        </ul>
+        <div class="certificate-overlay"
+             data-certificate-src="assets/tata.jpg">
+          <span>Show Certificate</span>
+        </div>
+      </div>
+
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>INTRAINZ</h3>
+          <span class="job-duration">SEP '24 – NOV '24</span>
+        </div>
+        <div class="job-role">ANDROID DEVELOPER INTERN | Kotlin</div>
+        <ul>
+          <li>Refactored core data handling logic, stabilizing the app to 95% crash-free sessions.</li>
+          <li>Implemented REST API connections for user data synchronization.</li>
+        </ul>
+        <div class="certificate-overlay"
+             data-certificate-src="assets/intrainz.jpg">
+          <span>Show Certificate</span>
+        </div>
+      </div>
+
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>ACMEGRADE</h3>
+          <span class="job-duration">JAN '24 – MAR '24</span>
+        </div>
+        <div class="job-role">WEB DEVELOPMENT INTERN | Front-End Optimization</div>
+        <ul>
+          <li>Improved UI performance and responsiveness across the platform.</li>
+          <li>Increased average user engagement time by 20%.</li>
+        </ul>
+        <div class="certificate-overlay"
+             data-certificate-src="assets/acme.jpg">
+          <span>Show Certificate</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    
+    <section class="section fade-in-section section-dark-alt" id="projects">
+      <div class="wrap">
+        <h2>05. Highlighted <span>Projects</span></h2>
+        <div class="project-grid">
+
+            <div class="project-card card-base">
+                <div class="project-details">
+                    <h3>AI-POWERED STUDENT ASSESSMENT PLATFORM</h3>
+                    <p>
+                        A unified, full-stack platform integrating intelligent test series, adaptive mock interviews, and AI-driven performance tracking to enhance student readiness and employability.
+                    </p>
+                    <ul>
+                        <li>Engineered the   Mock Interview Module leveraging   Gemini API for adaptive, domain-specific question generation and real-time voice-based evaluation (Speech-to-Text, NLP).</li>
+                        <li>Implemented   AI-Driven Proctoring using   OpenCV and MediaPipe for real-time monitoring of student activity (multiple faces, irregular actions) to ensure academic integrity.</li>
+                        <li>Designed and built an   Integrated Performance Dashboard for personalized recommendations, progress tracking, and comparative analysis from both tests and interviews.</li>
+                    </ul>
+                    <div class="tech-list">
+                        <span class="tech-tag">Gemini API (LLM)</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">MediaPipe</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js / Express</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-video">
+                    <video class="video-player" controls autoplay muted loop playsinline>
+                        <source src="assets/project1_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p style="font-size: 0.85rem; text-align: center; color: var(--color-text-dark);">Video Demo (MP4)</p>
+                    <a class="btn-repo" href="https://github.com/ZeDD0405/AI-Assessment-Platform" target="_blank">Show GitHub Repo</a>
+                </div>
+            </div>
+            
+            <div class="project-card card-base" id="project-insider-threat-id"> 
+                <div class="project-details">
+                    <h3>AI-DRIVEN INSIDER THREAT DETECTION SYSTEM 🏆</h3>
+                    <p>
+                          Winner – 1st Prize at HackIITK 2025. An end-to-end AI + Cybersecurity solution for real-time detection, monitoring, and reporting of insider threats using network and activity data.
+                    </p>
+                    <ul>
+                        <li>Developed the data pipeline using   Scapy for live packet capture and   Apache Kafka for scalable, high-volume data streaming and buffering.</li>
+                        <li>Deployed a multi-model detection system:   XGBoost for fast binary classification and an   Autoencoder Neural Network trained on 13GB+ data for deep anomaly detection.</li>
+                        <li>Architected the interactive   SOC Dashboard (Next.js) with real-time alerts, timeline visualization, and forensic download capabilities (.pcap logs).</li>
+                    </ul>
+                    <div class="tech-list">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Autoencoders</span>
+                        <span class="tech-tag">Apache Kafka</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Scapy / Dask</span>
+                        <span class="tech-tag">VirusTotal API</span>
+                    </div>
+                </div>
+                <div class="project-video">
+                    <video class="video-player" controls autoplay muted loop playsinline>
+                         <source src="assets/project2_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                     <p style="font-size: 0.85rem; text-align: center; color: var(--color-text-dark);">Video Demo (MP4)</p>
+                     <a class="btn-repo" href="https://github.com/ZeDD0405/Insider-Threat-Detector" target="_blank">Show GitHub Repo</a>
+                </div>
+            </div>
+
+
+
+            <div class="project-card card-base">
+                <div class="project-details">
+                    <h3>TEEN TEACHING PLATFORM (PEER-TO-PEER)</h3>
+                    <p>
+                        A community-driven digital platform designed to facilitate peer-to-peer learning, allowing teenagers to teach and learn skills from each other through interactive live or recorded sessions.
+                    </p>
+                    <ul>
+                        <li>Developed a   Peer-to-Peer Learning System enabling teens to create, schedule, and join classes or skill-sharing sessions across various subjects.</li>
+                        <li>Focused on   Community and Engagement in a full-stack MERN architecture.</li>
+                        <li>Established the foundational   MERN stack architecture (Node.js/Express.js, MongoDB) ready for scalable user authentication and content delivery.</li>
+                    </ul>
+                    <div class="tech-list">
+                        <span class="tech-tag">Next.js / React</span>
+                        <span class="tech-tag">Node.js / Express.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">JWT Authentication</span>
+                    </div>
+                </div>
+                <div class="project-video">
+                    <video class="video-player" controls autoplay muted loop playsinline>
+                        <source src="assets/project3_demo.mp4" type="video/mp4">
+                        Your browser does support the video tag.
+                    </video>
+                     <p style="font-size: 0.85rem; text-align: center; color: var(--color-text-dark);">Video Demo (MP4)</p>
+                     <a class="btn-repo" href="https://github.com/ZeDD0405/Teen-Teaching-Platform" target="_blank">Show GitHub Repo</a>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+    </section>
+
+<section class="section fade-in-section" id="cocurricular">
+    <div class="wrap">
+        <h2>06. Co-Curricular <span>Activities</span></h2>
+        
+        <ul class="cocurricular-list">
+            
+            <li>
+                <strong>Chief Placement Coordinator</strong>
+                <p style="font-size: 0.9rem; margin: 5px 0 10px 0; color: var(--color-text-sub);">Handled and managed all placement drives, logistics, and communications between companies and students for our college.</p>
+                <div style="font-size: 0.85rem; color: var(--color-text-main);">
+                    Skills Developed:
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Stakeholder Management</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Negotiation</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Process Optimization</span>
+                </div>
+            </li>
+            
+            <li>
+                <strong>MERN Stack Certification (Udemy)</strong>
+                <p style="font-size: 0.9rem; margin: 5px 0 10px 0; color: var(--color-text-sub);">Completed a paid course certification in the MERN Stack, solidifying expertise in full-stack JavaScript development.</p>
+                <div style="font-size: 0.85rem; color: var(--color-text-main);">
+                    Skills Developed:
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Full-Stack Development</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">MongoDB</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">React.js</span>
+                </div>
+            </li>
+
+            <li>
+                <strong>Organizing Committee, ETAmax College Fest</strong>
+                <p style="font-size: 0.9rem; margin: 5px 0 10px 0; color: var(--color-text-sub);">Was in the organizing committee for the college fest and handled all events.</p>
+                <div style="font-size: 0.85rem; color: var(--color-text-main);">
+                    Skills Developed:
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Event Management</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Team Coordination</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Logistics Planning</span>
+                </div>
+            </li>
+            
+            <li>
+                <strong>Sole Manager, College Fresher's Event</strong>
+                <p style="font-size: 0.9rem; margin: 5px 0 10px 0; color: var(--color-text-sub);">Single-handedly managed the fresher's event for juniors in the college.</p>
+                <div style="font-size: 0.85rem; color: var(--color-text-main);">
+                    Skills Developed:
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Sole Leadership</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Autonomy & Initiative</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">End-to-End Execution</span>
+                </div>
+            </li>
+            
+            <li>
+                <strong>Valorant Championship Organizer (During Fest)</strong>
+                <p style="font-size: 0.9rem; margin: 5px 0 10px 0; color: var(--color-text-sub);">Single-handedly managed a Valorant championship during the college fest.</p>
+                <div style="font-size: 0.85rem; color: var(--color-text-main);">
+                    Skills Developed:
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Process Execution</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Technical Logistics</span>
+                    <span class="tech-tag" style="background: var(--color-secondary-accent); color: #121212;">Conflict Resolution</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+    
+
+<section class="section fade-in-section section-dark-alt" id="contact">
+      <div class="wrap">
+        <h2>06. Let's <span>Connect</span></h2>
+        
+        <div class="contact-content" style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: var(--color-card-bg-dark);
+            border-radius: 12px;
+            box-shadow: var(--shadow-base);
+        ">
+
+            <p style="font-size: 1.1rem; color: var(--color-text-dark);">
+                I am actively seeking opportunities in AI/ML Engineering and Full-Stack Architecture. Feel free to reach out directly to discuss collaborations or full-time roles.
+            </p>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                
+                <a 
+                    class="btn-primary" 
+                    href="https://www.linkedin.com/in/sagar-kallimani-b211b5320/" 
+                    target="_blank"
+                    style="
+                        background: #0077b5; /* LinkedIn Blue */
+                        border-color: #0077b5;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    "
+                >
+                    <span style="font-size: 1.2em;">&#xe902;</span> Connect on LinkedIn
+                </a>
+
+                <a 
+                    class="btn-primary" 
+                    href="YOUR_GITHUB_PROFILE_URL" 
+                    target="_blank"
+                    style="
+                        background: #333; /* Dark GitHub color */
+                        border-color: #333;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    "
+                >
+                    <span style="font-size: 1.2em;">&#xe903;</span> View GitHub
+                </a>
+
+            </div>
+
+
+            <div style="
+                display: flex; 
+                flex-direction: column; 
+                gap: 15px;
+                width: 100%;
+                margin-top: 20px;
+                padding-top: 15px;
+                border-top: 1px solid var(--color-text-sub);
+            ">
+                
+                <p style="margin-bottom: 0; font-weight: 600; font-size: 1rem; color: var(--color-text-dark);">
+                    📧 Gmail: <a href="mailto:sagarkallimani0405@gmail.com" style="color: #000000; font-weight: 400;">sagarkallimani0405@gmail.com</a>
+                </p>
+
+                <p style="margin-bottom: 0; font-weight: 600; font-size: 1rem; color: var(--color-text-dark);">
+                    📞 Phone: <span style="color: #000000; font-weight: 400;">+91 9326302694</span>
+                </p>
+
+            </div>
+
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
+    
+</main>
+
+<footer class="footer">
+  <p>© 2025 Sagar Kallimani. Designed and Built with a New Vision.</p>
+</footer>
+
+<div id="certificate-modal" class="modal">
+  <span class="close-modal">&times;</span>
+  <div class="modal-content">
+    <h3 id="modal-title" style="color: var(--color-text-dark); text-align: center; margin-bottom: 15px;">Certificate Title</h3>
+    <img id="modal-certificate-image" src="" alt="Experience Certificate">
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // --- Scroll Animation and Navigation Observer ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -30% 0px', 
+        threshold: 0
+    };
+
+    const updateActiveLink = (id) => {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === id) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Initialize active link for the first section (Hero/About)
+    updateActiveLink('hero');
+
+    const observer = new IntersectionObserver((entries) => {
+        let currentSectionId = '';
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Prioritize sections entering the viewport
+                if (entry.intersectionRatio >= 0.3 || entry.boundingClientRect.top < window.innerHeight / 2) {
+                     currentSectionId = entry.target.id;
+                }
+                
+                // Scroll Animation Logic (Fade In Effect)
+                if (entry.target.classList.contains('fade-in-section')) {
+                    entry.target.classList.add('is-visible');
+                }
+            }
+        });
+
+        if (currentSectionId) {
+            updateActiveLink(currentSectionId);
+        } else {
+            // Fallback for when scrolling back up quickly past an entry point
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) { 
+                    currentSectionId = section.id;
+                }
+            });
+            if (currentSectionId) updateActiveLink(currentSectionId);
+        }
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    // --- Certificate Modal Logic ---
+    const modal = document.getElementById("certificate-modal");
+    const modalImg = document.getElementById("modal-certificate-image");
+    const modalTitle = document.getElementById("modal-title");
+    const closeModal = document.querySelector(".close-modal");
+    const certificateOverlays = document.querySelectorAll('.certificate-overlay');
+
+    certificateOverlays.forEach(overlay => {
+        overlay.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const certSrc = this.getAttribute('data-certificate-src');
+            const jobTitle = this.getAttribute('data-job-title');
+            
+            modal.style.display = "flex";
+            modalImg.src = certSrc;
+            modalTitle.textContent = jobTitle;
+        });
+    });
+
+    // Close modal when X is clicked
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicked outside of the image
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // --- CAROUSEL LOGIC ---
+    const slidesContainer = document.getElementById('achievement-carousel-slides');
+    const slides = document.querySelectorAll('.carousel-slide'); 
+    const dotsContainer = document.getElementById('achievement-carousel-dots');
+    let currentIndex = 0;
+    const totalSlides = slides.length; 
+
+    // 1. Create Dots (4 dots created dynamically)
+    dotsContainer.innerHTML = ''; 
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.setAttribute('data-index', i);
+        if (i === 0) {
+            dot.classList.add('active');
+        }
+        dot.addEventListener('click', () => showSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    const dots = document.querySelectorAll('.dot');
+
+    // 2. Show Specific Slide
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            index = 0; // Loop back to the first slide
+        } else if (index < 0) {
+            index = totalSlides - 1; // Loop back to the last slide
+        }
+        currentIndex = index;
+        const offset = -currentIndex * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+
+        // Update active dot
+        dots.forEach(dot => dot.classList.remove('active'));
+        if(dots[currentIndex]) {
+           dots[currentIndex].classList.add('active');
+        }
+    }
+
+    // 3. Auto Play Feature (Set to scroll every 5 seconds)
+    const autoSlide = () => {
+        showSlide(currentIndex + 1);
+    };
+
+    setInterval(autoSlide, 5000); 
+
+    // Initial load
+    showSlide(0); 
+});
+</script>
+</body>
+</html> 
