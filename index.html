@@ -904,6 +904,16 @@ p { margin-bottom: 1.25rem; }
     background: #444444 !important; /* Darker gray background for the tag */
     color: #ffffff !important; /* White text for contrast */
 }
+
+/* Force simple black text for Tech Stack section */
+#skills,
+#skills h2,
+#skills h2 span,
+#skills h3,
+#skills li {
+  color: #000 !important;
+}
+
 </style>
 </head>
 <body class="dark-mode"> 
@@ -1099,25 +1109,7 @@ p { margin-bottom: 1.25rem; }
           <li>Worked closely with the design and backend teams in an offline setting to deliver seamless user experiences.</li>
           <li>Gained hands-on experience in a professional environment while receiving a stipend of ₹25,000 per month.</li>
         </ul>
-        <div class="certificate-overlay"
-             data-certificate-src="assets/wizzer.jpg">
-          <span>Show Certificate</span>
-        </div>
-      </div>
-
-      <div class="job-entry card-base">
-        <div class="job-header">
-          <h3>FREELANCE: OM EYE CARE</h3>
-          <span class="job-duration">MAR '25 – JUN '25</span>
-        </div>
-        <div class="job-role">FULL-STACK DEVELOPER | E-commerce Platform</div>
-        <ul>
-          <li>Architected and deployed a complete e-commerce solution using the MERN Stack.</li>
-          <li>Implemented a robust Admin Dashboard for product, order, and user management.</li>
-          <li>Delivered a fully functional and scalable platform ready for production use.</li>
-        </ul>
-        <div class="certificate-overlay"
-             data-certificate-src="assets/.jpg">
+        <div class="certificate-overlay" data-certificate-src="assets/wizzer.jpg">
           <span>Show Certificate</span>
         </div>
       </div>
@@ -1132,8 +1124,7 @@ p { margin-bottom: 1.25rem; }
           <li>Optimized critical React components, achieving a 25% speed increase.</li>
           <li>Developed Express.js APIs for secure payment processing.</li>
         </ul>
-        <div class="certificate-overlay"
-             data-certificate-src="assets/tata.jpg">
+        <div class="certificate-overlay" data-certificate-src="assets/tata.jpg">
           <span>Show Certificate</span>
         </div>
       </div>
@@ -1148,8 +1139,7 @@ p { margin-bottom: 1.25rem; }
           <li>Refactored core data handling logic, stabilizing the app to 95% crash-free sessions.</li>
           <li>Implemented REST API connections for user data synchronization.</li>
         </ul>
-        <div class="certificate-overlay"
-             data-certificate-src="assets/intrainz.jpg">
+        <div class="certificate-overlay" data-certificate-src="assets/intrainz.jpg">
           <span>Show Certificate</span>
         </div>
       </div>
@@ -1164,15 +1154,29 @@ p { margin-bottom: 1.25rem; }
           <li>Improved UI performance and responsiveness across the platform.</li>
           <li>Increased average user engagement time by 20%.</li>
         </ul>
-        <div class="certificate-overlay"
-             data-certificate-src="assets/acme.jpg">
+        <div class="certificate-overlay" data-certificate-src="assets/acme.jpg">
           <span>Show Certificate</span>
         </div>
+      </div>
+
+      <!-- FREELANCE MOVED TO BOTTOM & CERTIFICATE REMOVED -->
+      <div class="job-entry card-base">
+        <div class="job-header">
+          <h3>FREELANCE: OM EYE CARE</h3>
+          <span class="job-duration">MAR '25 – JUN '25</span>
+        </div>
+        <div class="job-role">FULL-STACK DEVELOPER | E-commerce Platform</div>
+        <ul>
+          <li>Architected and deployed a complete e-commerce solution using the MERN Stack.</li>
+          <li>Implemented a robust Admin Dashboard for product, order, and user management.</li>
+          <li>Delivered a fully functional and scalable platform ready for production use.</li>
+        </ul>
       </div>
 
     </div>
   </div>
 </section>
+
 
 
     
